@@ -12,7 +12,7 @@
 ### Backend
 
 - **Database Setup**
-  - Set up tables and relationships for `User`, `Account`, `Transaction`, `Vendor`, `Contact`, and `Split`.
+  - [x] Set up tables and relationships for `User`, `Account`, `Transaction`, `Vendor`, `Contact`, and `Split`.
 
 - **Core API Endpoints**
   - [ ] **GET /accounts**: Retrieve a list of user accounts.
@@ -24,7 +24,7 @@
   - [ ] Implement backend authentication (email/password) and session management.
 
 - **Data Seeding for Development**
-  - [ ] Create a seed file to populate the database with a user, accounts, transactions, and contacts.
+  - [x] Create a seed file to populate the database with a user, accounts, transactions, and contacts.
 
 ### Frontend
 

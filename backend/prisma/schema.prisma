@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int          @id @default(autoincrement())
+  email        String       @unique
+  password     String
+  name         String?
+  contacts     Contact[]    @relation("UserContacts")
+  accounts     Account[]
+  createdAt    DateTime     @default(now())
+}
+
+model Account {
+  id           Int           @id @default(autoincrement())
+  userId       Int
+  name         String
+  transactions Transaction[]
+  user         User          @relation(fields: [userId], references: [id])
+}
+
+model Vendor {
+  id           Int           @id @default(autoincrement())
+  name         String        @unique
+  category     String?
+  iconUrl      String? 
+  transactions Transaction[]
+}
+
+model Transaction {
+  id           Int           @id @default(autoincrement())
+  accountId    Int
+  vendorId     Int?
+  amount       Float
+  type         String
+  createdAt    DateTime      @default(now())
+  account      Account       @relation(fields: [accountId], references: [id])
+  vendor       Vendor?       @relation(fields: [vendorId], references: [id])
+  splits       Split[]
+}
+
+model Contact {
+  id           Int           @id @default(autoincrement())
+  userId       Int
+  name         String
+  email        String
+  user         User          @relation("UserContacts", fields: [userId], references: [id])
+  splits       Split[]
+}
+
+model Split {
+  id           Int           @id @default(autoincrement())
+  transactionId Int
+  contactId    Int
+  amount       Float
+  status       String   @default("PENDING")
+  transaction  Transaction   @relation(fields: [transactionId], references: [id])
+  contact      Contact       @relation(fields: [contactId], references: [id])
+  paymentRequest PaymentRequest?
+}
+
+model PaymentRequest {
+  id           Int           @id @default(autoincrement())
+  splitId      Int           @unique
+  requestedAt  DateTime      @default(now())
+  status       String        @default("PENDING")
+  split        Split         @relation(fields: [splitId], references: [id])
+}
