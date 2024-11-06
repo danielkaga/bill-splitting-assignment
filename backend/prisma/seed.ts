@@ -79,13 +79,23 @@ async function main() {
 
   // Function to create transactions with random vendors
   const createTransactions = async (accountId: number) => {
-    const transactions = Array.from({ length: 50 }).map(() => ({
+    const initialDeposit = {
       accountId,
-      vendorId: faker.helpers.arrayElement(vendorIds), // Assign a random vendor
-      amount: parseFloat(faker.finance.amount({ min: 10, max: 5000 })), // Random amount between $10 and $5000
-      type: faker.helpers.arrayElement(['credit', 'debit']),
+      vendorId: faker.helpers.arrayElement(vendorIds),
+      amount: 100000, // Initial deposit of $1000
+      type: faker.helpers.arrayElement(['credit']),
       createdAt: faker.date.past()
-    }))
+    }
+    const transactions = [
+      initialDeposit,
+      ...Array.from({ length: 50 }).map(() => ({
+        accountId,
+        vendorId: faker.helpers.arrayElement(vendorIds), // Assign a random vendor
+        amount: parseFloat(faker.finance.amount({ min: -500, max: -10 })), // Random amount between $10 and $500
+        type: 'debit',
+        createdAt: faker.date.past()
+      }))
+    ]
     await prisma.transaction.createMany({ data: transactions })
   }
 
