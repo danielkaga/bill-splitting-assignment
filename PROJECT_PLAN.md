@@ -15,6 +15,7 @@
   - [x] Set up tables and relationships for `User`, `Account`, `Transaction`, `Vendor`, `Contact`, and `Split`.
 
 - **Core API Endpoints**
+  - [x] **POST /login**: Creates a session for a user.
   - [ ] **GET /accounts**: Retrieve a list of user accounts.
   - [ ] **GET /accounts/:accountId/transactions**: Retrieve transactions associated with a specific account.
   - [ ] **GET /contacts**: Retrieve a list of contacts for bill splitting.
@@ -27,6 +28,9 @@
   - [x] Create a seed file to populate the database with a user, accounts, transactions, and contacts.
 
 ### Frontend
+
+- **Login Page**
+  - [ ] Design and implement a login page where users can enter their credentials to authenticate.
 
 - **Accounts Page**
   - [ ] Build the Accounts page to display transactions and allow account switching.
