@@ -16,13 +16,13 @@
 
 - **Core API Endpoints**
   - [x] **POST /login**: Creates a session for a user.
-  - [ ] **GET /accounts**: Retrieve a list of user accounts.
-  - [ ] **GET /accounts/:accountId/transactions**: Retrieve transactions associated with a specific account.
+  - [x] **GET /accounts**: Retrieve a list of the user's accounts.
+  - [x] **GET /accounts/:accountId/transactions**: Retrieve transactions associated with a specific account.
   - [ ] **GET /contacts**: Retrieve a list of contacts for bill splitting.
   - [ ] **POST /accounts/:accountId/transactions/:transactionId/split**: Create or update a split for a specific transaction.
 
 - **Authentication & Session Management**
-  - [ ] Implement backend authentication (email/password) and session management.
+  - [x] Implement backend authentication (email/password) and session management.
 
 - **Data Seeding for Development**
   - [x] Create a seed file to populate the database with a user, accounts, transactions, and contacts.
