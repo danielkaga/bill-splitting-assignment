@@ -18,7 +18,7 @@
   - [x] **POST /login**: Creates a session for a user.
   - [x] **GET /accounts**: Retrieve a list of the user's accounts.
   - [x] **GET /accounts/:accountId/transactions**: Retrieve transactions associated with a specific account.
-  - [ ] **GET /contacts**: Retrieve a list of contacts for bill splitting.
+  - [x] **GET /contacts**: Retrieve a list of contacts for bill splitting.
   - [ ] **POST /accounts/:accountId/transactions/:transactionId/split**: Create or update a split for a specific transaction.
 
 - **Authentication & Session Management**
