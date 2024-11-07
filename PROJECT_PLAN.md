@@ -33,7 +33,7 @@
   - [x] Design and implement a login page where users can enter their credentials to authenticate.
 
 - **Accounts Page**
-  - [ ] Build the Accounts page to display transactions and allow account switching.
+  - [x] Build the Accounts page to display transactions and allow account switching.
 
 - **Transaction Page**
   - [ ] Create a Transaction view showing transaction details and options for splitting.
