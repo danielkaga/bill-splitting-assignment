@@ -55,7 +55,7 @@ export const getTransactionsByAccountId = async (req: Request, res: Response) =>
         amount: true,
         createdAt: true,
         type: true,
-        vendor: { select: { name: true, iconUrl: true } }
+        vendor: { select: { name: true, iconUrl: true, category: true } }
       }
     })
 
