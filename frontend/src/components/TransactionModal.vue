@@ -1,3 +1,62 @@
+<script>
+import SimpleButton from './SimpleButton.vue'
+import CameraImg from '@/assets/icons8-camera-50.png'
+import SplitImg from '@/assets/icons8-split-money-50.png'
+import SharedTabImg from '@/assets/icons8-shared-tab-50.png'
+import NoteImg from '@/assets/icons8-note-50.png'
+import RestaurantImg from '@/assets/icons8-dining-50.png'
+import GroceryImg from '@/assets/icons8-grocery-50.png'
+import UtilitiesImg from '@/assets/icons8-utilities-50.png'
+import RetailImg from '@/assets/icons8-retail-50.png'
+import EntertainmentImg from '@/assets/icons8-entertainment-50.png'
+import HealthCareImg from '@/assets/icons8-health-50.png'
+
+const categoryImgMap = {
+  restaurant: RestaurantImg,
+  grocery: GroceryImg,
+  utilities: UtilitiesImg,
+  retail: RetailImg,
+  entertainment: EntertainmentImg,
+  healthcare: HealthCareImg
+}
+
+export default {
+  props: {
+    show: {
+      type: Boolean,
+      required: true
+    },
+    transaction: {
+      type: Object,
+      required: true
+    }
+  },
+  components: {
+    SimpleButton
+  },
+  data() {
+    return {
+      cameraImg: CameraImg,
+      splitImg: SplitImg,
+      sharedTabImg: SharedTabImg,
+      noteImg: NoteImg,
+      category: this.transaction.vendor?.category || 'unknown',
+      categoryImg: this.transaction.vendor?.category
+        ? categoryImgMap[this.transaction.vendor?.category]
+        : null
+    }
+  },
+  methods: {
+    close() {
+      this.$emit('close')
+    },
+    formattedAmount(amount) {
+      return `$${Math.abs(amount).toFixed(2)}`
+    }
+  }
+}
+</script>
+
 <template>
   <transition name="modal">
     <div
@@ -34,50 +93,28 @@
 
         <!-- Buttons for Actions -->
         <div class="space-y-3">
-          <SimpleButton :title="'Dining out'" :description="'Change Category'" />
+          <SimpleButton :title="category" :description="'Change Category'" :img="categoryImg" />
           <SimpleButton
             :title="'Split this bill'"
             :description="'Instantly get paid back by your friends'"
+            :img="splitImg"
           />
           <SimpleButton
             :title="'Add to shared tab'"
-            :description="'A simple way to manage shared experiences'"
+            :description="'Manage shared experiences'"
+            :img="sharedTabImg"
           />
-          <SimpleButton :title="'Add notes'" :description="'Describe this payment'" />
-          <SimpleButton :title="'Add receipt'" :description="''" />
+          <SimpleButton
+            :title="'Add notes'"
+            :description="'Describe this payment'"
+            :img="noteImg"
+          />
+          <SimpleButton :title="'Add receipt'" :description="''" :img="cameraImg" />
         </div>
       </div>
     </div>
   </transition>
 </template>
-
-<script>
-import SimpleButton from './SimpleButton.vue'
-
-export default {
-  props: {
-    show: {
-      type: Boolean,
-      required: true
-    },
-    transaction: {
-      type: Object,
-      required: true
-    }
-  },
-  components: {
-    SimpleButton
-  },
-  methods: {
-    close() {
-      this.$emit('close')
-    },
-    formattedAmount(amount) {
-      return `$${Math.abs(amount).toFixed(2)}`
-    }
-  }
-}
-</script>
 
 <style scoped>
 .modal-enter-active,
