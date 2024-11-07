@@ -36,7 +36,7 @@
   - [x] Build the Accounts page to display transactions and allow account switching.
 
 - **Transaction Page**
-  - [ ] Create a Transaction view showing transaction details and options for splitting.
+  - [x] Create a Transaction view showing transaction details and options for splitting.
 
 - **Bill Splitting UI**
   - [ ] Implement equal and custom splits, allowing users to specify the amount each contact should pay.

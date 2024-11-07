@@ -1,15 +1,21 @@
 <script>
 import { config } from '@/config'
+import TransactionModal from '@/components/TransactionModal.vue'
 
 const { VITE_API_URL } = config
 
 export default {
+  components: {
+    TransactionModal
+  },
   data() {
     return {
       accounts: [],
       transactions: [],
       selectedAccount: null,
-      userWelcomeMessage: ''
+      selectedTransaction: null,
+      userWelcomeMessage: '',
+      modalVisible: false
     }
   },
   computed: {
@@ -87,6 +93,14 @@ export default {
       if (this.$refs.scrollContainer) {
         this.$refs.scrollContainer.scrollTop = 0
       }
+    },
+    openTransactionModal(transaction) {
+      this.selectedTransaction = transaction
+      this.modalVisible = true
+    },
+    closeTransactionModal() {
+      this.modalVisible = false
+      this.selectedTransaction = null
     }
   },
   mounted() {
@@ -101,7 +115,7 @@ export default {
       class="absolute top-0 left-0 right-0 h-36 bg-gradient-to-b from-primary to-transparent pointer-events-none opacity-25"
     ></div>
     <!-- Header -->
-    <header class="p-6 z-10 md:flex md:justify-center md:align-center md:flex-col">
+    <header class="p-6 z-10 md:flex md:justify-center md:items-center md:flex-col">
       <div class="text-xl font-bold text-info">{{ userWelcomeMessage }}</div>
       <div
         :class="{ 'fade-in': !!selectedAccount?.balance }"
@@ -119,7 +133,7 @@ export default {
         @click="selectAccount(account)"
         class="px-4 py-2 mx-1 text-sm rounded-full"
         :class="{
-          'bg-accent text-primary-content btn': account.id === selectedAccount?.id,
+          'bg-accent text-primary-content btn hover:bg-accent': account.id === selectedAccount?.id,
           'bg-neutral text-neutral-content btn': account.id !== selectedAccount?.id
         }"
       >
@@ -142,7 +156,8 @@ export default {
           <div
             v-for="transaction in group"
             :key="transaction.id"
-            class="flex justify-between items-center py-2"
+            class="flex justify-between items-center py-2 cursor-pointer"
+            @click="openTransactionModal(transaction)"
           >
             <div class="flex items-center">
               <img :src="transaction.vendor.iconUrl" alt="Vendor Icon" class="w-12 h-12 mr-2" />
@@ -161,6 +176,12 @@ export default {
       class="fixed bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-primary-content to-transparent pointer-events-none"
     ></div>
   </div>
+  <TransactionModal
+    v-if="selectedTransaction"
+    :show="modalVisible"
+    :transaction="selectedTransaction"
+    @close="closeTransactionModal"
+  />
 </template>
 
 <style scoped>
