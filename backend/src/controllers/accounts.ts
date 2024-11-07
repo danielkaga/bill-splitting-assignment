@@ -14,7 +14,8 @@ export const getAccounts = async (req: AuthRequest, res: Response) => {
       where: { userId },
       select: {
         id: true,
-        name: true
+        name: true,
+        user: { select: { name: true } }
       }
     })
 
@@ -53,7 +54,8 @@ export const getTransactionsByAccountId = async (req: Request, res: Response) =>
         id: true,
         amount: true,
         createdAt: true,
-        type: true
+        type: true,
+        vendor: { select: { name: true, iconUrl: true } }
       }
     })
 
