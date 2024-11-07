@@ -1,4 +1,4 @@
-import { Request, Response } from 'express'
+import { Response } from 'express'
 import { prisma } from '@src/prisma'
 import { AuthRequest } from '@src/middleware/authMiddleware'
 
@@ -42,13 +42,13 @@ export const getAccounts = async (req: AuthRequest, res: Response) => {
   }
 }
 
-// Controller to get transactions for a specific account
-export const getTransactionsByAccountId = async (req: Request, res: Response) => {
+export const getTransactionsByAccountId = async (req: AuthRequest, res: Response) => {
+  const userId = req.userId
   const { accountId } = req.params
 
   try {
     const transactions = await prisma.transaction.findMany({
-      where: { accountId: parseInt(accountId, 10) },
+      where: { accountId: parseInt(accountId, 10), account: { userId } },
       orderBy: { createdAt: 'desc' },
       select: {
         id: true,

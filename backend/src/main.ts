@@ -2,6 +2,7 @@ import express from 'express'
 import authRoutes from '@src/routes/auth'
 import accountsRoutes from '@src/routes/accounts'
 import contactsRoutes from '@src/routes/contacts'
+import transactionsRoutes from '@src/routes/transactions'
 import cors from 'cors'
 import { config } from './config'
 
@@ -23,6 +24,7 @@ app.use('/auth', authRoutes)
 // Protected routes
 app.use('/accounts', accountsRoutes)
 app.use('/contacts', contactsRoutes)
+app.use('/transactions', transactionsRoutes)
 
 app.listen(port, () => {
   console.log(`Bill Splitting app listening on port ${port}`)

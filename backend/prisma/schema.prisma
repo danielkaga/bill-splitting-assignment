@@ -59,10 +59,12 @@ model Split {
   transactionId Int
   contactId    Int
   amount       Float
-  status       String   @default("PENDING")
+  status       String        @default("PENDING")
   transaction  Transaction   @relation(fields: [transactionId], references: [id])
   contact      Contact       @relation(fields: [contactId], references: [id])
   paymentRequest PaymentRequest?
+
+  @@unique([transactionId, contactId])
 }
 
 model PaymentRequest {
