@@ -30,7 +30,7 @@
 ### Frontend
 
 - **Login Page**
-  - [ ] Design and implement a login page where users can enter their credentials to authenticate.
+  - [x] Design and implement a login page where users can enter their credentials to authenticate.
 
 - **Accounts Page**
   - [ ] Build the Accounts page to display transactions and allow account switching.

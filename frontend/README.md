@@ -1,6 +1,4 @@
-# interview-task-boilerplate-frontend
-
-This template should help get you started developing with Vue 3 in Vite.
+# Bill Splitting App Frontend
 
 ## Recommended IDE Setup
 
@@ -14,16 +12,18 @@ TypeScript cannot handle type information for `.vue` imports by default, so we r
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## Getting Started
 
-```sh
-pnpm install
+### Environment Setup: Copy the example environment file
+
+```bash
+  cp .env.example .env.development
 ```
 
-### Compile and Hot-Reload for Development
+### Install Dependencies
 
-```sh
-pnpm dev
+```bash
+  pnpm install
 ```
 
 ### Type-Check, Compile and Minify for Production
