@@ -16,7 +16,7 @@ async function main() {
     data: {
       email: 'guy@billsplitter.com',
       password: hashedPassword,
-      name: faker.person.fullName()
+      name: faker.person.firstName()
     }
   })
 
