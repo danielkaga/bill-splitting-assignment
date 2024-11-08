@@ -40,18 +40,18 @@
   - [x] Create a Transaction view showing transaction details and options for splitting.
 
 - **Bill Splitting UI**
-  - [ ] Implement equal and custom splits, allowing users to specify the amount each contact should pay.
-  - [ ] Add UI elements to track payment request statuses (e.g., pending, paid).
+  - [x] Implement equal and custom splits, allowing users to specify the amount each contact should pay.
+  - [x] Add UI elements to track payment request statuses (e.g., pending, paid).
 
 - **Responsive Design**
-  - [ ] Ensure a mobile-friendly design for phones and tablets.
+  - [x] Ensure a mobile-friendly design for phones and tablets.
 
 - **UI Notifications**
   - [ ] Add notifications for bill-splitting actions (e.g., split confirmation, payment request sent).
   - [ ] Implement error handling and display error messages.
 
 - **Feature Placeholders**
-  - [ ] Add UI placeholders to indicate upcoming features.
+  - [x] Add UI placeholders to indicate upcoming features.
 
 ### Testing and Finalization
 
