@@ -19,7 +19,8 @@
   - [x] **GET /accounts**: Retrieve a list of the user's accounts.
   - [x] **GET /accounts/:accountId/transactions**: Retrieve transactions associated with a specific account.
   - [x] **GET /contacts**: Retrieve a list of contacts for bill splitting.
-  - [x] **POST /transactions/:transactionId/split**: Create or update a split for a specific transaction.
+  - [x] **POST /transactions/:transactionId/splits**: Create or update a split for a specific transaction.
+  - [x] **GET /transactions/:transactionId/splits**: Retrieve a list of splits for a transaction.
 
 - **Authentication & Session Management**
   - [x] Implement backend authentication (email/password) and session management.
