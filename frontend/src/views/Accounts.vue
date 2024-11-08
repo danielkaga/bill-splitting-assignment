@@ -50,6 +50,7 @@ export default {
         if (response.status === 401) {
           // Redirect if unauthorized
           this.$router.push('/')
+          localStorage.removeItem('token')
           return
         }
 
@@ -75,6 +76,7 @@ export default {
         if (response.status === 401) {
           // Redirect if unauthorized
           this.$router.push('/')
+          localStorage.removeItem('token')
           return
         }
 
@@ -180,6 +182,7 @@ export default {
     v-if="selectedTransaction"
     :show="modalVisible"
     :transaction="selectedTransaction"
+    :userName="selectedAccount?.user.name"
     @close="closeTransactionModal"
   />
 </template>

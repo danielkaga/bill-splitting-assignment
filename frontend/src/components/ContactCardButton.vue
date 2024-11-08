@@ -43,7 +43,7 @@ export default {
     <div class="w-full flex gap-2 items-center justify-between">
       <div class="flex items-center gap-2">
         <div
-          class="w-8 h-8 rounded-full flex items-center justify-center"
+          class="min-w-8 h-8 rounded-full flex items-center justify-center"
           :style="{ backgroundColor: circleColor }"
         >
           <img v-if="img" :src="img" class="w-6 h-6 rounded-full" />
