@@ -17,7 +17,6 @@ export default {
     // Check for existing token
     const token = localStorage.getItem('token')
     if (token) {
-      // Redirect to /accounts if token exists
       this.$router.push('/accounts')
     }
   },
@@ -64,7 +63,8 @@ export default {
     class="flex items-center justify-center min-h-screen bg-gradient-to-b from-primary via-secondary to-accent"
   >
     <div class="w-full max-w-xs sm:max-w-sm md:max-w-md p-6 bg-white shadow-md rounded-lg">
-      <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">Sign In</h2>
+      <img src="@/assets/logo.png" alt="FairShare Logo" class="w-full h-auto object-contain" />
+      <h2 class="text-2xl font-bold text-center mb-6 text-gray-800">Sign In</h2>
 
       <form @submit.prevent="login">
         <div class="form-control mb-4">
