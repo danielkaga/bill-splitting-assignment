@@ -1,13 +1,17 @@
-# Bill Splitting App
+# FairShare - Bill Splitting App
 
 ## Overview
 
-This app helps friends split bills easily and accurately by allowing customized splits and tracking payments. For more details, see the [Project Plan](./PROJECT_PLAN.md).
+FairShare is a bill-splitting app designed to help friends easily and accurately split bills, allowing customized splits and tracking of payments.
 
-## Backend
+## Backend Setup
 
-View and follow project [README.md]('./backend/README.md') for the backend application.
+View the [Backend README](./backend/README.md) for setup instructions.
 
-## Frontend
+## Frontend Setup
 
-View and follow project [README.md]('./frontend/README.md') for the frontend application.
+View the [Frontend README](./frontend/README.md) for setup instructions.
+
+## Project Plan
+
+For more details, see the [Project Plan](./PROJECT_PLAN.md).

@@ -1,60 +1,56 @@
-# Project Plan
+# Project Plan - FairShare
 
 ## Objectives
 
-1. **Flexible Splitting**: Support both equal and custom splits for each bill.
+1. **Flexible Splitting**: Support equal and custom splits for each bill.
 2. **Payment Requests**: Enable users to send and track payment requests.
-3. **Mobile-First Design**: Prioritize mobile-friendly, responsive design.
-4. **Feature Indicators**: Show placeholders for upcoming features.
+3. **Mobile-First Design**: Focus on a responsive, mobile-friendly interface.
+4. **Feature Indicators**: Placeholder elements for upcoming features.
 
 ## Technical Tasks
 
 ### Backend
 
-- **Database Setup**
-  - [x] Set up tables and relationships for `User`, `Account`, `Transaction`, `Vendor`, `Contact`, and `Split`.
+- **Database Schema**
+  - [x] Models: `User`, `Account`, `Transaction`, `Vendor`, `Contact`, and `Split`.
 
-- **Core API Endpoints**
-  - [x] **POST /login**: Creates a session for a user.
-  - [x] **GET /accounts**: Retrieve a list of the user's accounts.
-  - [x] **GET /accounts/:accountId/transactions**: Retrieve transactions associated with a specific account.
-  - [x] **GET /contacts**: Retrieve a list of contacts for bill splitting.
-  - [x] **POST /transactions/:transactionId/splits**: Create or update a split for a specific transaction.
-  - [x] **GET /transactions/:transactionId/splits**: Retrieve a list of splits for a transaction.
+- **API Endpoints**
+  - [x] **POST /login**: Authenticate user and create a session.
+  - [x] **GET /accounts**: Retrieve user's accounts.
+  - [x] **GET /accounts/:accountId/transactions**: Retrieve transactions for an account.
+  - [x] **GET /contacts**: Retrieve contacts for bill splitting.
+  - [x] **POST /transactions/:transactionId/splits**: Create/update a split for a transaction.
+  - [x] **GET /transactions/:transactionId/splits**: Retrieve splits for a transaction.
 
-- **Authentication & Session Management**
-  - [x] Implement backend authentication (email/password) and session management.
+- **Authentication**
+  - [x] Email/password authentication using session management.
 
-- **Data Seeding for Development**
-  - [x] Create a seed file to populate the database with a user, accounts, transactions, and contacts.
+- **Data Seeding**
+  - [x] Seed database with sample data for development.
 
 ### Frontend
 
 - **Login Page**
-  - [x] Design and implement a login page where users can enter their credentials to authenticate.
+  - [x] Implement user login page.
 
 - **Accounts Page**
-  - [x] Build the Accounts page to display transactions and allow account switching.
+  - [x] Display accounts and transactions.
 
-- **Transaction Page**
-  - [x] Create a Transaction view showing transaction details and options for splitting.
+- **Transaction Details**
+  - [x] Provide transaction details and bill-splitting options.
 
 - **Bill Splitting UI**
-  - [x] Implement equal and custom splits, allowing users to specify the amount each contact should pay.
-  - [x] Add UI elements to track payment request statuses (e.g., pending, paid).
+  - [x] Support equal and custom splits with contact selection.
+  - [x] Display split status (pending, paid).
 
 - **Responsive Design**
-  - [x] Ensure a mobile-friendly design for phones and tablets.
+  - [x] Mobile-first design for phones and tablets.
 
-- **UI Notifications**
-  - [ ] Add notifications for bill-splitting actions (e.g., split confirmation, payment request sent).
-  - [ ] Implement error handling and display error messages.
+- **UI Notifications & Error Handling**
+  - [ ] Notifications for split actions and error handling.
 
-- **Feature Placeholders**
-  - [x] Add UI placeholders to indicate upcoming features.
+## Testing & Finalization
 
-### Testing and Finalization
-
-- [ ] Conduct end-to-end testing to verify backend and frontend integration.
-- [ ] Implement error handling for all API calls and UI actions.
-- [ ] Finalize styling and ensure responsiveness across device sizes.
+- [ ] End-to-end testing.
+- [ ] Error handling.
+- [x] Final styling and responsiveness.
