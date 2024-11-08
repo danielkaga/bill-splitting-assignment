@@ -3,6 +3,33 @@ import { prisma } from '@src/prisma'
 import { Response } from 'express'
 import { z } from 'zod'
 
+export const getTransactionSplits = async (req: AuthRequest, res: Response) => {
+  try {
+    const userId = req.userId
+    const transactionId = parseInt(req.params.transactionId, 10)
+
+    if (!userId) {
+      return res.status(400).json({ error: 'Authorization error: Invalid user ID' })
+    }
+
+    const splits = await prisma.split.findMany({
+      where: { transactionId },
+      select: {
+        id: true,
+        amount: true,
+        status: true,
+        contact: { select: { id: true, name: true } },
+        paymentRequest: { select: { id: true, status: true, requestedAt: true } }
+      }
+    })
+
+    res.json(splits)
+  } catch (error) {
+    console.error('Error fetching accounts:', error)
+    res.status(500).json({ error: 'An error occurred while fetching accounts' })
+  }
+}
+
 export async function createOrUpdateSplit(req: AuthRequest, res: Response) {
   const userId = req.userId
   const transactionId = parseInt(req.params.transactionId, 10)
