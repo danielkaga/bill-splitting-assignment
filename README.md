@@ -68,13 +68,12 @@ Run the Backend and Frontend apps:
 3. **Transaction Details**:
    - Select a transaction to view details.
    - ![Transaction Details](./images/transaction.png)
+   - View and manage contacts for bill splitting.
+   - ![Contacts Page](./images/contacts.png)
    - Split a bill by selecting `Split This Bill` button, selecting contacts, setting amounts and hitting the `Request Payments` button
    - ![Bill Split UI](./images/bill-split-ui.png)
    - ![Bill Split Summary](./images/bill-split-summary.png)
-
-4. **Contacts Page**:
-   - View and manage contacts for bill splitting.
-   - ![Contacts Page](./images/contacts.png)
+   
 
 ### Incomplete Items
 
